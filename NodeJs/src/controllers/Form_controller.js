@@ -1,4 +1,5 @@
 const formModel = require('../models/form');
+var MongoClient = require('mongodb').MongoClient;
 /**
  * 
  * @param {*} raw 
@@ -9,12 +10,11 @@ const formModel = require('../models/form');
 exports.create = (raw, reply) => {
     console.log('acá viene el body: ', raw)
     const form = formModel({
-            Fullname: (raw.body.Fullname ? raw.body.Fullname : capture.fullName),
-            Email: (raw.body.Email ? raw.body.Email : capture.email),
-            Phone: (raw.body.Phone ? raw.body.Phone : capture.phone),
-            Message: (raw.body.Message ? raw.body.Message : capture.message)
-        })
-        // reply.redirect('/')
+        Fullname: raw.body.Fullname,
+        Email: raw.body.Email,
+        Phone: raw.body.Phone,
+        Message: raw.body.Message
+    })
     form.save().then(
         data => {
             reply.send(data)
@@ -30,7 +30,7 @@ exports.create = (raw, reply) => {
 
 //post 2.0
 exports.create2 = async(raw, reply) => {
-    console.log('request in routes: ', raw)
+    console.log('request in routes: ', raw.body)
     const formHTML = formModel({
             Fullname: raw.body.Fullname,
             Email: raw.body.Email,
@@ -40,6 +40,7 @@ exports.create2 = async(raw, reply) => {
         // reply.redirect('/')
     await formHTML.save().then(
         data => {
+            console.log('enviando la info')
             reply.send(data)
         }
     ).catch(
@@ -50,28 +51,17 @@ exports.create2 = async(raw, reply) => {
         }
     )
 }
-
+let url = 'mongodb+srv://FelipeG:Admin.FelipeG@ilogicadatabase.mbmru.mongodb.net/formulariosEnviados?retryWrites=true&w=majority'
 
 //Get
-exports.findAll = (raw, reply) => {
+exports.findAll = async(raw, reply) => {
     console.log('acá viene el request: ', raw)
-    const form = formModel({
-        Fullname: raw.body.FullName,
-        Email: raw.body.Email,
-        Phone: raw.body.Phone,
-        Message: raw.body.Message
+    formModel.find({}, (err, data) => {
+        if (err) throw err
+        reply.send({
+            data
+        })
     })
-    form.findAll(raw.body.form, form).then(
-        data => {
-            reply.send(data)
-        }
-    ).catch(
-        error => {
-            return replay.status(error.status).send({
-                message: ("Error al buscar", error.message)
-            })
-        }
-    )
 }
 
 //Delete
@@ -83,7 +73,7 @@ exports.delete = (raw, reply) => {
         Phone: raw.body.Phone,
         Message: raw.body.Message
     })
-    formModel.delete(raw.body.form, form).then(
+    formModel.deleleOne(raw.body.form, form).then(
         data => {
             reply.send(data)
         }

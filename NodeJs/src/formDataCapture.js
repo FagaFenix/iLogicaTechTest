@@ -1,6 +1,7 @@
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-document = new JSDOM("contact.html").window.document;
+// const jsdom = require("jsdom");
+// const { JSDOM } = jsdom;
+// document = new JSDOM("contact.html").window.document;
+const Swal = require('sweetalert2')
 
 function capture(event) {
     event.preventDefault();
@@ -10,10 +11,19 @@ function capture(event) {
     const value = Object.fromEntries(data.entries());
 
     console.log('data from Form: ', JSON.stringify(value));
-    return value
+
+    fetch('http://127.0.0.1:3000/formHTML/create2', {
+        method: 'POST',
+        body: JSON.stringify(value),
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+    }).then(response => {
+        reply.redirect('/mobster/html/contact.html')
+    })
 }
 const form = document.querySelector('form');
 let lastFunction = form.addEventListener('submit', capture);
+
+
 
 module.exports = { capture, lastFunction }
 

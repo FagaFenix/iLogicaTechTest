@@ -10,7 +10,6 @@ const routes = require('fastify-routes')
 fastify.register(cors)
 fastify.register(formbody)
 fastify.register(routes)
-    // fastify.register(bodyParser.urlencoded({ extended: false }))
 
 
 fastify.get('/', async(raw, reply) => {
@@ -22,18 +21,7 @@ fastify.get('/newEndPoint', async(raw, reply) => {
     reply.send('Hello World!')
 })
 
-fastify.post('/mobster/html/', async(raw, reply) => {
-    form.create(capture, (err, form) => {
-        console.log(err)
-        reply.redirect('/')
-    })
-})
-
 require('./routes/form_route')(fastify)
-
-// const fastifyRoutes = require('./routes/form_route')
-
-// fastify.route(fastifyRoutes)
 
 
 connectToDB()

@@ -10,7 +10,7 @@ module.exports = (fastify) => {
 
     fastify.post('/form/create', formController.create)
 
-    fastify.get('/form/getAll', formController.findAll)
+    fastify.get('/form/findAll', formController.findAll)
 
     fastify.delete('/form/deleleOne/:id', formController.delete)
 }

@@ -6,7 +6,8 @@ const formSchema = new mongoose.Schema({
     Phone: { type: Number },
     Message: { type: String, require: true }
 }, {
-    versionKey: false
+    versionKey: false,
+    timestamps: true
 })
 
 module.exports = mongoose.model('Form', formSchema)
