@@ -12,14 +12,31 @@ En este repositorio encontrarás un projecto, enfocado al BackEnd , desarrollado
 ## ¿Qué debo instalar?
 
 - Principalmente NodeJs (en caso de que tu máquina no lo tenga aún)
+  - ve a este link, descarga la versión LTS de https://nodejs.org/es/ y sigues las instrucciones del instalador. Una vez instalado puedes comprobar que tus sistema ahora tiene node Js usando en la terminal el comando node -v . El cual te dará la versión que posees actualmente.
 - El framework que se usó principalmente para este proyecto es **Fastify** ( **fastify.io** ) para el manejo de los request.
 - Para la base de datos  se usó MongoDb y Mongoose para la modelación de la data recibida.
 
-Para instalar las dependencias basta con descargar el repositorio y usar el siguiente comando en la terminal:
+Para instalar las dependencias basta con descargar el repositorio, abrir la terminal en la ruta del src (NodeJs/src) y usar el siguiente comando:
 
 - npm istall
 
-el cuál installar el node_modules (junto a las dependencias necesarias)
+(Si por alguna razón recibes un error, relacionado a que "npm" no se reconoce como un comando interno o externo, programa o archivo por lotes ejecutable. es posible que debas realizar algunos pasos extra:
+
+
+    - Abra el Panel de control (haga clic en el botón Inicio, luego haga clic en Panel de control )
+    - Hacer clic Cuentas de usuario
+    - Hacer clic Cambiar mis variables de entorno
+    - Seleccione RUTA/Path y haga clic en Editar ... botón
+    - Al final del valor de la variable, agregue ;C:\Program Files\nodejs (o la ruta en la que NodeJs se haya instalado)
+    - Haga clic en Aceptar en la ventana "Editar variable de usuario", luego haga clic en Aceptar en la ventana "Variables de entorno"
+    - Inicie una ventana de símbolo del sistema (botón Inicio, luego escriba cmd en la búsqueda y presione enter)
+    - En el indicador ( C:\>), escriba npm y presione enter; ahora debería ver texto de ayuda ( Usage: npm <command>etc.) en lugar de " no se reconoce npm ... "
+
+es recomendable reiniciar la terminal o incluso el equipo para que se ejecuten los cambios)
+
+el cuál instalará el node_modules (junto a las dependencias necesarias)
+    (es sabido que en algunos casos habrá que instalar manualmente "mongoose", para lo cual solo necesitarás un comando npm extra:
+    "npm install mongoose" en la terminal, como lo hicimos en un principio, recuerda que siempre debe ser en la ruta de la carpeta src)
 
 ## ¿Qué hace?
 
