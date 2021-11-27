@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "mobster-felipe"
+  },
+  "targets": {
+    "mobster-felipe": {
+      "hosting": {
+        "contact": [
+          "contacto-mobster-felipe"
+        ]
+      }
+    }
+  }
+}

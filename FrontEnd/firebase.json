@@ -1,0 +1,22 @@
+{
+  "hosting": [
+    {
+      "target": "index",
+      "public": "./mobster",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "contact",
+      "public": "./mobster-contact",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }
+  ]
+}
