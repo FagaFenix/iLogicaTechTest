@@ -1,4 +1,4 @@
-# iLogicaTechTest
+# BackEnd solution for a given frontEnd
 
 Hola, esta es un pequeño preview de lo que encontrarás en el repositorio, el cual se encuentra en el **branch master** cómo funciona, cuál es la intención y algunas de las herramientas usadas. **Let's go!**. 
 
