@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
 
 const connectToDB = () => {
     mongoose.connect(
-        // 'mongodb://127.0.0.1:27017/iLogicaDBTest',
-        'mongodb+srv://FelipeG:Admin.FelipeG@ilogicadatabase.mbmru.mongodb.net/formulariosEnviados?retryWrites=true&w=majority', {
+        'mongodb://127.0.0.1:27017/iLogicaDBTest',
+       {
             useNewUrlParser: true,
             useUnifiedTopology: true
         }, (error) => {
